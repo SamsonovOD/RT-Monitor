@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Temperature Monitor test project." />
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<title>Монитор температуры</title>
+		<link href="favicon.ico" rel="icon" type="image/png" />
+	</head>
+	<script>
+		function toMain() {
+			document.getElementById("maintext").innerHTML = "Главная страница.";
+		}
+		function toProfile() {
+			document.getElementById("maintext").innerHTML = "Добро пожаловать.";
+		}
+		function toHelp() {
+			document.getElementById("helpBox").style.display = "block";
+		}
+		function helpClose() {
+			document.getElementById("helpBox").style.display = "none";
+		}
+	</script>
+	<body background="bkg.png">
+		<div class="page">
+			<div class="topmain">
+				<img src="logo.jpg" width="200" alt="Ростелеком">
+				<h1 class="maintext"> Личный кабинет системы </h1>
+			</div>
+			<div class="bottommain">
+				<div class="menu">
+					<button class="menubtn" onclick="toMain()">Главная</button><br/><br/>
+					<button class="menubtn" onclick="toProfile()">Профиль</button><br/><br/>
+					<button class="menubtn" onclick="window.location.reload()">Статус</button><br/><br/>
+					<button class="menubtn" onclick="toHelp()">Справка</button><br/><br/>
+					<button class="menubtn" onclick="self.close()">Выход</button><br/><br/>
+				</div>
+				<div class="panels">
+					<h2>Система мониторинга температуры</h2>
+					<div class="leftblock">
+						<div id="title">Таблица</div>
+						<iframe id="monitor_frame" height="500" frameborder="0" src="monitor.php"></iframe>
+					</div>
+					<div class="rightblock">
+						<div id="title">График</div>
+						<iframe id="graph_frame" height="500" frameborder="0" src="graph.php"></iframe>
+						<p id="action"></p>
+					</div>
+				</div>
+			</div>
+			<div id="helpBox">
+				<div class="popup-content">
+					<button class="closePopup" onclick="helpClose()">&times;</button>
+					<p>Проект Самсонова Олега.</p>
+					<p>Датчики принимают случайное значение от -2 до +2 в нормальном режиме, от -1 до +5 в горячем режиме и от -5 до +1 в холодном режиме.</p>
+					<p>При значениях температур 10 и 40 режим изменяется автоматически.</p>
+					<p id="myBtn" onclick="close()"></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
